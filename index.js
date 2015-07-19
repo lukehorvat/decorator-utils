@@ -20,6 +20,6 @@ export class DecoratorUtils {
       return DecoratorUtils.declarationType[`${isObjectLiteral ? "OBJECT_LITERAL" : "CLASS"}_${isAccessor ? "ACCESSOR" : "METHOD"}`];
     }
 
-    return null;
+    throw new Error("Invalid declaration type.");
   }
 };
