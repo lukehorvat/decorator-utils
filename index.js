@@ -1,9 +1,9 @@
 export let declarationTypes = {
-  CLASS: Symbol(),
-  CLASS_METHOD: Symbol(),
-  CLASS_ACCESSOR: Symbol(),
-  OBJECT_LITERAL_METHOD: Symbol(),
-  OBJECT_LITERAL_ACCESSOR: Symbol()
+  CLASS: Symbol("CLASS"),
+  CLASS_METHOD: Symbol("CLASS_METHOD"),
+  CLASS_ACCESSOR: Symbol("CLASS_ACCESSOR"),
+  OBJECT_LITERAL_METHOD: Symbol("OBJECT_LITERAL_METHOD"),
+  OBJECT_LITERAL_ACCESSOR: Symbol("OBJECT_LITERAL_ACCESSOR")
 };
 
 export function getDeclarationType(args) {
