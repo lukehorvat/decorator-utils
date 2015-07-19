@@ -1,0 +1,33 @@
+{
+  "name": "decorator-utils",
+  "version": "0.0.0",
+  "description": "Utilities for ES7 decorators.",
+  "author": "Luke Horvat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukehorvat/decorator-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukehorvat/decorator-utils/issues"
+  },
+  "main": "./compiled/index.js",
+  "scripts": {
+    "build": "babel uncompiled --out-dir compiled --optional es7.decorators,es7.classProperties"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "5.6.23"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "keywords": [
+    "decorator",
+    "annotation",
+    "es7",
+    "es2016",
+    "utilities",
+    "utils"
+  ]
+}
