@@ -1,10 +1,12 @@
-export let declarationTypes = {
-  CLASS: Symbol("CLASS"),
-  CLASS_METHOD: Symbol("CLASS_METHOD"),
-  CLASS_ACCESSOR: Symbol("CLASS_ACCESSOR"),
-  OBJECT_LITERAL_METHOD: Symbol("OBJECT_LITERAL_METHOD"),
-  OBJECT_LITERAL_ACCESSOR: Symbol("OBJECT_LITERAL_ACCESSOR")
-};
+export let declarationTypes = [
+  "CLASS",
+  "CLASS_METHOD",
+  "CLASS_ACCESSOR",
+  "OBJECT_LITERAL_METHOD",
+  "OBJECT_LITERAL_ACCESSOR"
+].reduce((obj, name) => {
+  return Object.defineProperty(obj, name, { value: Symbol(name) });
+}, {});
 
 export function getDeclarationType(args) {
   let [target, name, descriptor] = Array.slice(args);
