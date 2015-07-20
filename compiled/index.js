@@ -18,13 +18,13 @@ var DecoratorUtils = (function () {
   _createClass(DecoratorUtils, null, [{
     key: "getDeclarationType",
     value: function getDeclarationType(args) {
-      var _Array$slice = Array.slice(args);
+      var _Array$prototype$slice$call = Array.prototype.slice.call(args);
 
-      var _Array$slice2 = _slicedToArray(_Array$slice, 3);
+      var _Array$prototype$slice$call2 = _slicedToArray(_Array$prototype$slice$call, 3);
 
-      var target = _Array$slice2[0];
-      var name = _Array$slice2[1];
-      var descriptor = _Array$slice2[2];
+      var target = _Array$prototype$slice$call2[0];
+      var name = _Array$prototype$slice$call2[1];
+      var descriptor = _Array$prototype$slice$call2[2];
 
       if (args.length === 1 && typeof target === "function") {
         return DecoratorUtils.declarationType.CLASS;

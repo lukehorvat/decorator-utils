@@ -10,7 +10,7 @@ export class DecoratorUtils {
   }, {})
 
   static getDeclarationType(args) {
-    let [target, name, descriptor] = Array.slice(args);
+    let [target, name, descriptor] = Array.prototype.slice.call(args);
 
     if (args.length === 1 && typeof target === "function") {
       return DecoratorUtils.declarationType.CLASS;
