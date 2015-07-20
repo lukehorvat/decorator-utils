@@ -1,5 +1,5 @@
 export class DecoratorUtils {
-  static declarationType = [
+  static type = [
     "CLASS",
     "CLASS_METHOD",
     "CLASS_ACCESSOR",
@@ -9,15 +9,15 @@ export class DecoratorUtils {
     return Object.defineProperty(obj, name, { value: Symbol(name) });
   }, {})
 
-  static getDeclarationType(args) {
+  static getType(args) {
     let [target, name, descriptor] = Array.prototype.slice.call(args);
 
     if (args.length === 1 && typeof target === "function") {
-      return DecoratorUtils.declarationType.CLASS;
+      return DecoratorUtils.type.CLASS;
     } else if (args.length === 3 && typeof target === "object" && typeof target.constructor === "function") {
       let isObjectLiteral = target.constructor.name === "Object";
       let isAccessor = descriptor.get || descriptor.set;
-      return DecoratorUtils.declarationType[`${isObjectLiteral ? "OBJECT_LITERAL" : "CLASS"}_${isAccessor ? "ACCESSOR" : "METHOD"}`];
+      return DecoratorUtils.type[`${isObjectLiteral ? "OBJECT_LITERAL" : "CLASS"}_${isAccessor ? "ACCESSOR" : "METHOD"}`];
     }
 
     throw new Error("Invalid declaration type.");
