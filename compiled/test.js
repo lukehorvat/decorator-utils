@@ -9,10 +9,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var _ = require("./");
 
 describe("DecoratorUtils", function () {
-  describe("getType()", function () {
+  describe("getDeclarationType()", function () {
     it("should correctly detect class declarations", function () {
       function decorator() {
-        (_.DecoratorUtils.getType(arguments) === _.DecoratorUtils.type.CLASS).should.be["true"]();
+        (_.DecoratorUtils.getDeclarationType(arguments) === _.DecoratorUtils.declarationTypes.CLASS).should.be["true"]();
       }
 
       var Thing = (function () {
@@ -28,7 +28,7 @@ describe("DecoratorUtils", function () {
 
     it("should correctly detect class methods", function () {
       function decorator() {
-        (_.DecoratorUtils.getType(arguments) === _.DecoratorUtils.type.CLASS_METHOD).should.be["true"]();
+        (_.DecoratorUtils.getDeclarationType(arguments) === _.DecoratorUtils.declarationTypes.CLASS_METHOD).should.be["true"]();
       }
 
       var Thing = (function () {
@@ -48,7 +48,7 @@ describe("DecoratorUtils", function () {
 
     it("should correctly detect class accessors", function () {
       function decorator() {
-        (_.DecoratorUtils.getType(arguments) === _.DecoratorUtils.type.CLASS_ACCESSOR).should.be["true"]();
+        (_.DecoratorUtils.getDeclarationType(arguments) === _.DecoratorUtils.declarationTypes.CLASS_ACCESSOR).should.be["true"]();
       }
 
       var Thing = (function () {
@@ -69,7 +69,7 @@ describe("DecoratorUtils", function () {
 
     it("should correctly detect object literal methods", function () {
       function decorator() {
-        (_.DecoratorUtils.getType(arguments) === _.DecoratorUtils.type.OBJECT_LITERAL_METHOD).should.be["true"]();
+        (_.DecoratorUtils.getDeclarationType(arguments) === _.DecoratorUtils.declarationTypes.OBJECT_LITERAL_METHOD).should.be["true"]();
       }
 
       var thing = _createDecoratedObject([{
@@ -81,7 +81,7 @@ describe("DecoratorUtils", function () {
 
     it("should correctly detect object literal accessors", function () {
       function decorator() {
-        (_.DecoratorUtils.getType(arguments) === _.DecoratorUtils.type.OBJECT_LITERAL_ACCESSOR).should.be["true"]();
+        (_.DecoratorUtils.getDeclarationType(arguments) === _.DecoratorUtils.declarationTypes.OBJECT_LITERAL_ACCESSOR).should.be["true"]();
       }
 
       var thing = _createDecoratedObject([{

@@ -16,8 +16,8 @@ var DecoratorUtils = (function () {
   }
 
   _createClass(DecoratorUtils, null, [{
-    key: "getType",
-    value: function getType(args) {
+    key: "getDeclarationType",
+    value: function getDeclarationType(args) {
       var _Array$prototype$slice$call = Array.prototype.slice.call(args);
 
       var _Array$prototype$slice$call2 = _slicedToArray(_Array$prototype$slice$call, 3);
@@ -27,17 +27,17 @@ var DecoratorUtils = (function () {
       var descriptor = _Array$prototype$slice$call2[2];
 
       if (args.length === 1 && typeof target === "function") {
-        return DecoratorUtils.type.CLASS;
+        return DecoratorUtils.declarationTypes.CLASS;
       } else if (args.length === 3 && typeof target === "object" && typeof target.constructor === "function") {
         var isObjectLiteral = target.constructor.name === "Object";
         var isAccessor = descriptor.get || descriptor.set;
-        return DecoratorUtils.type[(isObjectLiteral ? "OBJECT_LITERAL" : "CLASS") + "_" + (isAccessor ? "ACCESSOR" : "METHOD")];
+        return DecoratorUtils.declarationTypes[(isObjectLiteral ? "OBJECT_LITERAL" : "CLASS") + "_" + (isAccessor ? "ACCESSOR" : "METHOD")];
       }
 
       throw new Error("Invalid declaration type.");
     }
   }, {
-    key: "type",
+    key: "declarationTypes",
     value: ["CLASS", "CLASS_METHOD", "CLASS_ACCESSOR", "OBJECT_LITERAL_METHOD", "OBJECT_LITERAL_ACCESSOR"].reduce(function (obj, name) {
       return Object.defineProperty(obj, name, { value: Symbol(name) });
     }, {}),

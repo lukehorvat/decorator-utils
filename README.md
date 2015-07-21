@@ -18,8 +18,8 @@ A simple example:
 import {DecoratorUtils} from "decorator-utils";
 
 function decorator() {
-  if (DecoratorUtils.getType(arguments) !== DecoratorUtils.type.CLASS_METHOD) {
-    throw new Error("Decorator target must be a class method declaration.");
+  if (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS_METHOD) {
+    throw new Error("Decorator must be applied to a class method declaration.");
   }
 }
 
@@ -34,16 +34,16 @@ class Dog {
 
 The package exposes a static class, `DecoratorUtils`, which has the following functions and properties:
 
-### getType(arguments)
+### getDeclarationType(arguments)
 
 - A function that can be called from within a decorator to determine the type of declaration that is being targeted. Useful for guarding a decorator against certain declaration types.
 - Parameters:
   - **arguments** - The `arguments` object the decorator function was called with. Just pass it through!
-- Returns one of `DecoratorUtils.type`'s values.
+- Returns a value from `DecoratorUtils.declarationTypes`.
 
-### type
+### declarationTypes
 
-- A property describing the set of possible declaration types that a decorator can target, as key-value pairs of an object (`String` -> [`Symbol`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol)). To be used in conjunction with `DecoratorUtils.getType()`.
+- A property describing the set of possible declaration types that a decorator can target, as key-value pairs of an object (`String` -> [`Symbol`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol)). To be used in conjunction with `DecoratorUtils.getDeclarationType()`.
 - Keys:
   - `CLASS`
   - `CLASS_METHOD`
