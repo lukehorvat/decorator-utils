@@ -12,4 +12,24 @@ $ npm install decorator-utils
 
 ## Usage
 
+A simple example:
+
+```javascript
+import {DecoratorUtils} from "decorator-utils";
+
+function decorator() {
+  if (DecoratorUtils.getType(arguments) !== DecoratorUtils.type.CLASS_METHOD) {
+    throw new Error("Decorator target must be a class method declaration.");
+  }
+}
+
+@decorator // Error will be thrown.
+class Hello {
+  @decorator // Error will NOT be thrown.
+  world() {}
+}
+```
+
+## API
+
 TODO.

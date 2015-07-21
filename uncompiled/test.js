@@ -5,7 +5,7 @@ describe("DecoratorUtils", () => {
     it("should correctly detect class declarations", () => {
       function decorator() {
         (DecoratorUtils.getType(arguments) === DecoratorUtils.type.CLASS).should.be.true();
-      };
+      }
 
       @decorator
       class Thing {}
@@ -14,7 +14,7 @@ describe("DecoratorUtils", () => {
     it("should correctly detect class methods", () => {
       function decorator() {
         (DecoratorUtils.getType(arguments) === DecoratorUtils.type.CLASS_METHOD).should.be.true();
-      };
+      }
 
       class Thing {
         @decorator
@@ -25,7 +25,7 @@ describe("DecoratorUtils", () => {
     it("should correctly detect class accessors", () => {
       function decorator() {
         (DecoratorUtils.getType(arguments) === DecoratorUtils.type.CLASS_ACCESSOR).should.be.true();
-      };
+      }
 
       class Thing {
         @decorator
@@ -39,7 +39,7 @@ describe("DecoratorUtils", () => {
     it("should correctly detect object literal methods", () => {
       function decorator() {
         (DecoratorUtils.getType(arguments) === DecoratorUtils.type.OBJECT_LITERAL_METHOD).should.be.true();
-      };
+      }
 
       let thing = {
         @decorator
@@ -50,7 +50,7 @@ describe("DecoratorUtils", () => {
     it("should correctly detect object literal accessors", () => {
       function decorator() {
         (DecoratorUtils.getType(arguments) === DecoratorUtils.type.OBJECT_LITERAL_ACCESSOR).should.be.true();
-      };
+      }
 
       let thing = {
         @decorator
