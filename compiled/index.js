@@ -11,10 +11,6 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var DecoratorUtils = (function () {
-  function DecoratorUtils() {
-    _classCallCheck(this, DecoratorUtils);
-  }
-
   _createClass(DecoratorUtils, null, [{
     key: "getDeclarationType",
     value: function getDeclarationType(args) {
@@ -43,6 +39,12 @@ var DecoratorUtils = (function () {
     }, {}),
     enumerable: true
   }]);
+
+  function DecoratorUtils() {
+    _classCallCheck(this, DecoratorUtils);
+
+    throw new Error("Static class cannot be instantiated.");
+  }
 
   return DecoratorUtils;
 })();

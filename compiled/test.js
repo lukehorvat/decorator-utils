@@ -9,6 +9,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var _ = require("./");
 
 describe("DecoratorUtils", function () {
+  describe("constructor()", function () {
+    it("should not be callable", function () {
+      (function () {
+        return new _.DecoratorUtils();
+      }).should["throw"]("Static class cannot be instantiated.");
+    });
+  });
+
   describe("getDeclarationType()", function () {
     it("should correctly detect class declarations", function () {
       function decorator() {

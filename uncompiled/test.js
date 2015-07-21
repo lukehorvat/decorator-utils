@@ -1,6 +1,12 @@
 import {DecoratorUtils} from "./";
 
 describe("DecoratorUtils", () => {
+  describe("constructor()", () => {
+    it("should not be callable", () => {
+      (() => new DecoratorUtils()).should.throw("Static class cannot be instantiated.");
+    });
+  });
+
   describe("getDeclarationType()", () => {
     it("should correctly detect class declarations", () => {
       function decorator() {

@@ -22,4 +22,8 @@ export class DecoratorUtils {
 
     throw new Error("Invalid declaration type.");
   }
+
+  constructor() {
+    throw new Error("Static class cannot be instantiated.");
+  }
 };
