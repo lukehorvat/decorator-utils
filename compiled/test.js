@@ -122,7 +122,7 @@ describe("DecoratorUtils", function () {
   });
 
   describe("createDecorator()", function () {
-    it("should produce a decorator that only accepts a subset of declaration types", function () {
+    it("should produce a decorator that can only be applied to a subset of declaration types", function () {
       var decorator = _.DecoratorUtils.createDecorator([_.DecoratorUtils.declarationTypes.CLASS_METHOD, _.DecoratorUtils.declarationTypes.CLASS_ACCESSOR], function () {});
 
       decorator.should.be.a.Function();

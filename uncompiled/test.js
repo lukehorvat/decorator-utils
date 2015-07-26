@@ -89,7 +89,7 @@ describe("DecoratorUtils", () => {
   });
 
   describe("createDecorator()", () => {
-    it("should produce a decorator that only accepts a subset of declaration types", () => {
+    it("should produce a decorator that can only be applied to a subset of declaration types", () => {
       let decorator = DecoratorUtils.createDecorator([
         DecoratorUtils.declarationTypes.CLASS_METHOD,
         DecoratorUtils.declarationTypes.CLASS_ACCESSOR

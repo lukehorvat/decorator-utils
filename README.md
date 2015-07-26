@@ -41,6 +41,14 @@ The package exposes a static class, `DecoratorUtils`, which has the following fu
   - **arguments** - The `arguments` object the decorator function was called with. Just pass it through!
 - Returns a value from `DecoratorUtils.declarationTypes`.
 
+### createDecorator(validDeclarationTypes, fn)
+
+- A function that produces a decorator that can only be applied to a subset of declaration types (i.e. all others throw an error). Handy if you want to create decorators in a factory-like manner.
+- Parameters:
+  - **validDeclarationTypes** - An array of values from `DecoratorUtils.declarationTypes`.
+  - **fn** - A function that contains the rest of the decorator's logic.
+- Returns a decorator (function).
+
 ### declarationTypes
 
 - A property describing the set of possible declaration types that a decorator can target, as key-value pairs of an object (`String` -> [`Symbol`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol)). To be used in conjunction with `DecoratorUtils.getDeclarationType()`.
