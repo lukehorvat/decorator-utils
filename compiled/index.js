@@ -33,6 +33,19 @@ var DecoratorUtils = (function () {
       throw new Error("Invalid declaration type.");
     }
   }, {
+    key: "createDecorator",
+    value: function createDecorator(validDeclarationTypes, fn) {
+      validDeclarationTypes = [].concat(validDeclarationTypes);
+
+      return function () {
+        if (validDeclarationTypes.indexOf(DecoratorUtils.getDeclarationType(arguments)) < 0) {
+          throw new Error("Decorator must be applied to a valid declaration type.");
+        }
+
+        return fn.apply(this, arguments);
+      };
+    }
+  }, {
     key: "declarationTypes",
     value: ["CLASS", "CLASS_METHOD", "CLASS_ACCESSOR", "OBJECT_LITERAL_METHOD", "OBJECT_LITERAL_ACCESSOR"].reduce(function (obj, name) {
       return Object.defineProperty(obj, name, { value: Symbol(name) });

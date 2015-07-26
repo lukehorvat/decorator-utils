@@ -87,4 +87,54 @@ describe("DecoratorUtils", () => {
       };
     });
   });
+
+  describe("createDecorator()", () => {
+    it("should produce a decorator that only accepts a subset of declaration types", () => {
+      let decorator = DecoratorUtils.createDecorator([
+        DecoratorUtils.declarationTypes.CLASS_METHOD,
+        DecoratorUtils.declarationTypes.CLASS_ACCESSOR
+      ], function() {});
+
+      decorator.should.be.a.Function();
+
+      (() => {
+        @decorator
+        class Thing {}
+      }).should.throw("Decorator must be applied to a valid declaration type.");
+
+      (() => {
+        class Thing {
+          @decorator
+          hello() {}
+        }
+      }).should.not.throw("Decorator must be applied to a valid declaration type.");
+
+      (() => {
+        class Thing {
+          @decorator
+          get hello() {}
+
+          @decorator
+          set hello(value) {}
+        }
+      }).should.not.throw("Decorator must be applied to a valid declaration type.");
+
+      (() => {
+        let thing = {
+          @decorator
+          hello() {}
+        };
+      }).should.throw("Decorator must be applied to a valid declaration type.");
+
+      (() => {
+        let thing = {
+          @decorator
+          get hello() {},
+
+          @decorator
+          set hello(value) {}
+        };
+      }).should.throw("Decorator must be applied to a valid declaration type.");
+    });
+  });
 });

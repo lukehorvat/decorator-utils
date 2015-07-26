@@ -120,4 +120,74 @@ describe("DecoratorUtils", function () {
       }]);
     });
   });
+
+  describe("createDecorator()", function () {
+    it("should produce a decorator that only accepts a subset of declaration types", function () {
+      var decorator = _.DecoratorUtils.createDecorator([_.DecoratorUtils.declarationTypes.CLASS_METHOD, _.DecoratorUtils.declarationTypes.CLASS_ACCESSOR], function () {});
+
+      decorator.should.be.a.Function();
+
+      (function () {
+        var Thing = (function () {
+          function Thing() {
+            _classCallCheck(this, _Thing2);
+          }
+
+          var _Thing2 = Thing;
+          Thing = decorator(Thing) || Thing;
+          return Thing;
+        })();
+      }).should["throw"]("Decorator must be applied to a valid declaration type.");
+
+      (function () {
+        var Thing = (function () {
+          function Thing() {
+            _classCallCheck(this, Thing);
+          }
+
+          _createDecoratedClass(Thing, [{
+            key: "hello",
+            decorators: [decorator],
+            value: function hello() {}
+          }]);
+
+          return Thing;
+        })();
+      }).should.not["throw"]("Decorator must be applied to a valid declaration type.");
+
+      (function () {
+        var Thing = (function () {
+          function Thing() {
+            _classCallCheck(this, Thing);
+          }
+
+          _createDecoratedClass(Thing, [{
+            key: "hello",
+            decorators: [decorator, decorator],
+            get: function get() {},
+            set: function set(value) {}
+          }]);
+
+          return Thing;
+        })();
+      }).should.not["throw"]("Decorator must be applied to a valid declaration type.");
+
+      (function () {
+        var thing = _createDecoratedObject([{
+          key: "hello",
+          decorators: [decorator],
+          value: function hello() {}
+        }]);
+      }).should["throw"]("Decorator must be applied to a valid declaration type.");
+
+      (function () {
+        var thing = _createDecoratedObject([{
+          key: "hello",
+          decorators: [decorator, decorator],
+          get: function get() {},
+          set: function set(value) {}
+        }]);
+      }).should["throw"]("Decorator must be applied to a valid declaration type.");
+    });
+  });
 });
