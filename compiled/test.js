@@ -38,7 +38,7 @@ describe("DecoratorUtils", function () {
       })();
     });
 
-    it("should correctly detect class methods", function () {
+    it("should correctly detect class method declarations", function () {
       function decorator() {
         (_.DecoratorUtils.getDeclarationType(arguments) !== _.DecoratorUtils.declarationTypes.CLASS).should.be["true"]();
         (_.DecoratorUtils.getDeclarationType(arguments) === _.DecoratorUtils.declarationTypes.CLASS_METHOD).should.be["true"]();
@@ -62,7 +62,7 @@ describe("DecoratorUtils", function () {
       })();
     });
 
-    it("should correctly detect class accessors", function () {
+    it("should correctly detect class accessor declarations", function () {
       function decorator() {
         (_.DecoratorUtils.getDeclarationType(arguments) !== _.DecoratorUtils.declarationTypes.CLASS).should.be["true"]();
         (_.DecoratorUtils.getDeclarationType(arguments) !== _.DecoratorUtils.declarationTypes.CLASS_METHOD).should.be["true"]();
@@ -87,7 +87,7 @@ describe("DecoratorUtils", function () {
       })();
     });
 
-    it("should correctly detect object literal methods", function () {
+    it("should correctly detect object literal method declarations", function () {
       function decorator() {
         (_.DecoratorUtils.getDeclarationType(arguments) !== _.DecoratorUtils.declarationTypes.CLASS).should.be["true"]();
         (_.DecoratorUtils.getDeclarationType(arguments) !== _.DecoratorUtils.declarationTypes.CLASS_METHOD).should.be["true"]();
@@ -103,7 +103,7 @@ describe("DecoratorUtils", function () {
       }]);
     });
 
-    it("should correctly detect object literal accessors", function () {
+    it("should correctly detect object literal accessor declarations", function () {
       function decorator() {
         (_.DecoratorUtils.getDeclarationType(arguments) !== _.DecoratorUtils.declarationTypes.CLASS).should.be["true"]();
         (_.DecoratorUtils.getDeclarationType(arguments) !== _.DecoratorUtils.declarationTypes.CLASS_METHOD).should.be["true"]();

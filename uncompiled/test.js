@@ -21,7 +21,7 @@ describe("DecoratorUtils", () => {
       class Thing {}
     });
 
-    it("should correctly detect class methods", () => {
+    it("should correctly detect class method declarations", () => {
       function decorator() {
         (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS).should.be.true();
         (DecoratorUtils.getDeclarationType(arguments) === DecoratorUtils.declarationTypes.CLASS_METHOD).should.be.true();
@@ -36,7 +36,7 @@ describe("DecoratorUtils", () => {
       }
     });
 
-    it("should correctly detect class accessors", () => {
+    it("should correctly detect class accessor declarations", () => {
       function decorator() {
         (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS).should.be.true();
         (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS_METHOD).should.be.true();
@@ -54,7 +54,7 @@ describe("DecoratorUtils", () => {
       }
     });
 
-    it("should correctly detect object literal methods", () => {
+    it("should correctly detect object literal method declarations", () => {
       function decorator() {
         (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS).should.be.true();
         (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS_METHOD).should.be.true();
@@ -69,7 +69,7 @@ describe("DecoratorUtils", () => {
       };
     });
 
-    it("should correctly detect object literal accessors", () => {
+    it("should correctly detect object literal accessor declarations", () => {
       function decorator() {
         (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS).should.be.true();
         (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS_METHOD).should.be.true();

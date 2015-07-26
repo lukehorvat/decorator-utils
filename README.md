@@ -17,7 +17,7 @@ A simple example:
 ```javascript
 import {DecoratorUtils} from "decorator-utils";
 
-function decorator() {
+function decorator(target, name, descriptor) {
   let declarationType = DecoratorUtils.getDeclarationType(arguments);
 
   if (declarationType !== DecoratorUtils.declarationTypes.CLASS_METHOD) {
