@@ -23,12 +23,12 @@ export class DecoratorUtils {
     throw new Error("Invalid declaration type.");
   }
 
-  static createDecorator(validDeclarationTypes, fn) {
-    validDeclarationTypes = [].concat(validDeclarationTypes);
+  static createDecorator(supportedDeclarationTypes, fn) {
+    supportedDeclarationTypes = [].concat(supportedDeclarationTypes);
 
     return function() {
-      if (validDeclarationTypes.indexOf(DecoratorUtils.getDeclarationType(arguments)) < 0) {
-        throw new Error("Decorator must be applied to a valid declaration type.");
+      if (supportedDeclarationTypes.indexOf(DecoratorUtils.getDeclarationType(arguments)) < 0) {
+        throw new Error("Decorator must be applied to a supported declaration type.");
       }
 
       return fn.apply(this, arguments);

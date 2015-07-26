@@ -137,7 +137,7 @@ describe("DecoratorUtils", function () {
           Thing = decorator(Thing) || Thing;
           return Thing;
         })();
-      }).should["throw"]("Decorator must be applied to a valid declaration type.");
+      }).should["throw"]("Decorator must be applied to a supported declaration type.");
 
       (function () {
         var Thing = (function () {
@@ -153,7 +153,7 @@ describe("DecoratorUtils", function () {
 
           return Thing;
         })();
-      }).should.not["throw"]("Decorator must be applied to a valid declaration type.");
+      }).should.not["throw"]("Decorator must be applied to a supported declaration type.");
 
       (function () {
         var Thing = (function () {
@@ -170,7 +170,7 @@ describe("DecoratorUtils", function () {
 
           return Thing;
         })();
-      }).should.not["throw"]("Decorator must be applied to a valid declaration type.");
+      }).should.not["throw"]("Decorator must be applied to a supported declaration type.");
 
       (function () {
         var thing = _createDecoratedObject([{
@@ -178,7 +178,7 @@ describe("DecoratorUtils", function () {
           decorators: [decorator],
           value: function hello() {}
         }]);
-      }).should["throw"]("Decorator must be applied to a valid declaration type.");
+      }).should["throw"]("Decorator must be applied to a supported declaration type.");
 
       (function () {
         var thing = _createDecoratedObject([{
@@ -187,7 +187,7 @@ describe("DecoratorUtils", function () {
           get: function get() {},
           set: function set(value) {}
         }]);
-      }).should["throw"]("Decorator must be applied to a valid declaration type.");
+      }).should["throw"]("Decorator must be applied to a supported declaration type.");
     });
   });
 });

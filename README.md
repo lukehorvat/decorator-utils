@@ -34,18 +34,18 @@ class Dog {
 
 The package exposes a static class, `DecoratorUtils`, which has the following functions and properties:
 
-### getDeclarationType(arguments)
+### getDeclarationType()
 
 - A function that can be called from within a decorator to determine the type of declaration that is being targeted. Useful for guarding a decorator against certain declaration types.
 - Parameters:
-  - **arguments** - The `arguments` object the decorator function was called with. Just pass it through!
+  - **arguments** - The [`arguments`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/arguments) object of the decorator function. Just pass it through!
 - Returns a value from `DecoratorUtils.declarationTypes`.
 
-### createDecorator(validDeclarationTypes, fn)
+### createDecorator()
 
-- A function that produces a decorator that can only be applied to a subset of declaration types (i.e. all others throw an error). Handy if you want to create decorators in a factory-like manner.
+- A function that produces a decorator that can only be applied to a subset of "supported" declaration types; all "unsupported" ones will throw an error. Handy if you want to create decorators in a factory-like manner.
 - Parameters:
-  - **validDeclarationTypes** - An array of values from `DecoratorUtils.declarationTypes`.
+  - **supportedDeclarationTypes** - An array of values from `DecoratorUtils.declarationTypes`.
   - **fn** - A function that contains the rest of the decorator's logic.
 - Returns a decorator (function).
 

@@ -100,14 +100,14 @@ describe("DecoratorUtils", () => {
       (() => {
         @decorator
         class Thing {}
-      }).should.throw("Decorator must be applied to a valid declaration type.");
+      }).should.throw("Decorator must be applied to a supported declaration type.");
 
       (() => {
         class Thing {
           @decorator
           hello() {}
         }
-      }).should.not.throw("Decorator must be applied to a valid declaration type.");
+      }).should.not.throw("Decorator must be applied to a supported declaration type.");
 
       (() => {
         class Thing {
@@ -117,14 +117,14 @@ describe("DecoratorUtils", () => {
           @decorator
           set hello(value) {}
         }
-      }).should.not.throw("Decorator must be applied to a valid declaration type.");
+      }).should.not.throw("Decorator must be applied to a supported declaration type.");
 
       (() => {
         let thing = {
           @decorator
           hello() {}
         };
-      }).should.throw("Decorator must be applied to a valid declaration type.");
+      }).should.throw("Decorator must be applied to a supported declaration type.");
 
       (() => {
         let thing = {
@@ -134,7 +134,7 @@ describe("DecoratorUtils", () => {
           @decorator
           set hello(value) {}
         };
-      }).should.throw("Decorator must be applied to a valid declaration type.");
+      }).should.throw("Decorator must be applied to a supported declaration type.");
     });
   });
 });
