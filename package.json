@@ -21,8 +21,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "babel": "5.6.23",
-    "husky": "0.8.1",
+    "babel": "5.8.5",
+    "husky": "0.9.1",
     "mocha": "2.2.5",
     "should": "7.0.2"
   },
