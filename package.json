@@ -1,7 +1,7 @@
 {
   "name": "decorator-utils",
   "version": "0.0.3",
-  "description": "Utilities for ES7 decorators.",
+  "description": "Helpful utility functions to use when writing your own ES7 decorators.",
   "author": "Luke Horvat",
   "license": "MIT",
   "repository": {
@@ -35,6 +35,9 @@
     "es7",
     "es2016",
     "utilities",
-    "utils"
+    "utils",
+    "helpers",
+    "toolbelt",
+    "functions"
   ]
 }
