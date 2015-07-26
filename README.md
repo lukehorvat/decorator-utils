@@ -18,9 +18,13 @@ A simple example:
 import {DecoratorUtils} from "decorator-utils";
 
 function decorator() {
-  if (DecoratorUtils.getDeclarationType(arguments) !== DecoratorUtils.declarationTypes.CLASS_METHOD) {
+  let declarationType = DecoratorUtils.getDeclarationType(arguments);
+
+  if (declarationType !== DecoratorUtils.declarationTypes.CLASS_METHOD) {
     throw new Error("Decorator must be applied to a class method declaration.");
   }
+
+  // The rest of the decorator's logic...
 }
 
 @decorator // Error will be thrown.

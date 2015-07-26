@@ -24,10 +24,10 @@ export class DecoratorUtils {
   }
 
   static createDecorator(supportedDeclarationTypes, fn) {
-    supportedDeclarationTypes = [].concat(supportedDeclarationTypes);
+    supportedDeclarationTypes = new Set([].concat(supportedDeclarationTypes));
 
     return function() {
-      if (supportedDeclarationTypes.indexOf(DecoratorUtils.getDeclarationType(arguments)) < 0) {
+      if (!supportedDeclarationTypes.has(DecoratorUtils.getDeclarationType(arguments))) {
         throw new Error("Decorator must be applied to a supported declaration type.");
       }
 
