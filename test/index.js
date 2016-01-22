@@ -1,4 +1,5 @@
-import {DecoratorUtils} from "./";
+import should from "should";
+import {DecoratorUtils} from "../lib";
 
 describe("DecoratorUtils", () => {
   describe("constructor()", () => {
